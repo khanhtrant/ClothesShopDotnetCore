@@ -1,0 +1,53 @@
+﻿@using X.PagedList.Mvc;
+@using X.PagedList;
+@using X.PagedList.Mvc.Core
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="purple">
+                        <h4 class="title">Customer</h4>
+                        <p class="category">List of Customer</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table">
+                            <thead class="text-primary">
+                            <tr>
+                                <th>Name</th>
+                                <th>Company Name</th>
+                                <th>Region</th>
+                                <th>City</th>
+                                <th>Phone</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach (var c in ViewBag.OnePageOfCustomers)
+                            {
+                                <tr>
+                                    <td>@c.ContactName</td>
+                                    <td>@c.CompanyName</td>
+                                    <td>@c.Region</td>
+                                    <td>@c.City</td>
+                                    <td>@c.Phone</td>
+                                </tr>
+                            }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    @Html.PagedListPager((IPagedList)ViewBag.OnePageOfCustomers, page => Url.Action("Index", new { page }))
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

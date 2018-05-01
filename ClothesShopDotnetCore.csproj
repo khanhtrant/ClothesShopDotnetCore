@@ -4,9 +4,74 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
+    <PackageReference Include="X.PagedList.Mvc.Core" Version="7.2.4" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.3" />
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Areas\Admin\Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wwwroot\Admin\css\bootstrap.min.css" />
+    <None Include="wwwroot\Admin\css\demo.css" />
+    <None Include="wwwroot\Admin\css\material-dashboard.css" />
+    <None Include="wwwroot\Admin\img\apple-icon.png" />
+    <None Include="wwwroot\Admin\img\cover.jpeg" />
+    <None Include="wwwroot\Admin\img\faces\marc.jpg" />
+    <None Include="wwwroot\Admin\img\favicon.png" />
+    <None Include="wwwroot\Admin\img\mask.png" />
+    <None Include="wwwroot\Admin\img\new_logo.png" />
+    <None Include="wwwroot\images\sidebar-1.jpg" />
+    <None Include="wwwroot\Admin\img\sidebar-2.jpg" />
+    <None Include="wwwroot\Admin\img\sidebar-3.jpg" />
+    <None Include="wwwroot\Admin\img\sidebar-4.jpg" />
+    <None Include="wwwroot\Admin\img\tim_80x80.png" />
+    <None Include="wwwroot\Admin\js\arrive.min.js" />
+    <None Include="wwwroot\Admin\js\bootstrap-notify.js" />
+    <None Include="wwwroot\Admin\js\bootstrap.min.js" />
+    <None Include="wwwroot\Admin\js\chartist.min.js" />
+    <None Include="wwwroot\Admin\js\demo.js" />
+    <None Include="wwwroot\Admin\js\jquery-3.2.1.min.js" />
+    <None Include="wwwroot\Admin\js\material-dashboard.js" />
+    <None Include="wwwroot\Admin\js\material.min.js" />
+    <None Include="wwwroot\Admin\js\perfect-scrollbar.jquery.min.js" />
+    <None Include="wwwroot\Admin\sass\material-dashboard.scss" />
+    <None Include="wwwroot\Admin\sass\md\mixins\_chartist.scss" />
+    <None Include="wwwroot\Admin\sass\md\mixins\_transparency.scss" />
+    <None Include="wwwroot\Admin\sass\md\mixins\_vendor-prefixes.scss" />
+    <None Include="wwwroot\Admin\sass\md\plugins\_animate.scss" />
+    <None Include="wwwroot\Admin\sass\md\plugins\_perfect-scrollbar.scss" />
+    <None Include="wwwroot\Admin\sass\md\plugins\_plugin-nouislider.scss" />
+    <None Include="wwwroot\Admin\sass\md\_alerts.scss" />
+    <None Include="wwwroot\Admin\sass\md\_buttons.scss" />
+    <None Include="wwwroot\Admin\sass\md\_cards.scss" />
+    <None Include="wwwroot\Admin\sass\md\_chartist.scss" />
+    <None Include="wwwroot\Admin\sass\md\_checkboxes.scss" />
+    <None Include="wwwroot\Admin\sass\md\_colors.scss" />
+    <None Include="wwwroot\Admin\sass\md\_dialogs.scss" />
+    <None Include="wwwroot\Admin\sass\md\_dropdown.scss" />
+    <None Include="wwwroot\Admin\sass\md\_footers.scss" />
+    <None Include="wwwroot\Admin\sass\md\_forms.scss" />
+    <None Include="wwwroot\Admin\sass\md\_inputs-size.scss" />
+    <None Include="wwwroot\Admin\sass\md\_inputs.scss" />
+    <None Include="wwwroot\Admin\sass\md\_misc.scss" />
+    <None Include="wwwroot\Admin\sass\md\_mixins.scss" />
+    <None Include="wwwroot\Admin\sass\md\_navbars.scss" />
+    <None Include="wwwroot\Admin\sass\md\_pagination.scss" />
+    <None Include="wwwroot\Admin\sass\md\_pills.scss" />
+    <None Include="wwwroot\Admin\sass\md\_popups.scss" />
+    <None Include="wwwroot\Admin\sass\md\_radios.scss" />
+    <None Include="wwwroot\Admin\sass\md\_responsive.scss" />
+    <None Include="wwwroot\Admin\sass\md\_ripples.scss" />
+    <None Include="wwwroot\Admin\sass\md\_shadows.scss" />
+    <None Include="wwwroot\Admin\sass\md\_sidebar-and-main-panel.scss" />
+    <None Include="wwwroot\Admin\sass\md\_tables.scss" />
+    <None Include="wwwroot\Admin\sass\md\_tabs.scss" />
+    <None Include="wwwroot\Admin\sass\md\_togglebutton.scss" />
+    <None Include="wwwroot\Admin\sass\md\_typography.scss" />
+    <None Include="wwwroot\Admin\sass\md\_variables.scss" />
   </ItemGroup>
 </Project>

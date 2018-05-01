@@ -20,6 +20,11 @@ namespace ClothesShopDotnetCore.Entities
         public virtual DbSet<Suppliers> Suppliers { get; set; }
         public virtual DbSet<Territories> Territories { get; set; }
 
+        public NorthwindContext(DbContextOptions<NorthwindContext> options):base(options)
+        {
+            
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
         }
