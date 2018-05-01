@@ -1,8 +1,49 @@
-﻿@model object
-
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
 @{
     ViewBag.Title = "title";
     Layout = "_Layout";
 }
 
-<h2>title</h2>
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="purple">
+                        <h4 class="title">Products</h4>
+                        <p class="category">List of Product</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table">
+                            <thead class="text-primary">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Supplier</th>
+                                    <th>Category</th>
+                                    <th>Price</th>
+                                    <th>Units In Stock</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var p in ViewBag.OnePageOfProducts)
+                                {
+                                    <tr>
+                                        <td>@p.ProductName</td>
+                                        <td>@p.Supplier.CompanyName</td>
+                                        <td>@p.Category.CategoryName</td>
+                                        <td>@p.UnitPrice</td>
+                                        <td>@p.UnitsInStock</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    @Html.PagedListPager((IPagedList)ViewBag.OnePageOfProducts, page => Url.Action("Index", new { page }))
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

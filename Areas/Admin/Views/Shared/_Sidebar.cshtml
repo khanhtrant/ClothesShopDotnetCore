@@ -23,7 +23,19 @@
                     <i class="material-icons">person</i>
                     <p>Customer</p>
                 </a>
-            </li>       
+            </li>
+            <li class="@Html.IsActive("Index","Products")">
+                <a href="@Url.Action("Index","Products")">
+                    <i class="material-icons">shop</i>
+                    <p>Product</p>
+                </a>
+            </li>
+            <li class="@Html.IsActive("Index","Employees")">
+                <a href="@Url.Action("Index","Employees")">
+                    <i class="material-icons">assignment ind</i>
+                    <p>Employee</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>

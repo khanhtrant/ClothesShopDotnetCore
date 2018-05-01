@@ -9,20 +9,20 @@ using X.PagedList;
 namespace ClothesShopDotnetCore.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class ProductsController : Controller
+    public class EmployeesController : Controller
     {
-        private readonly IProductRepository _repository;
+        private readonly IEmployeeRepository _repository;
 
-        public ProductsController(IProductRepository repository)
+        public EmployeesController(IEmployeeRepository repository)
         {
             _repository = repository;
         }
         public IActionResult Index(int? page)
         {
-            var products = _repository.GetProducts();
+            var employees = _repository.GetEmployees();
             var pageNumber = page ?? 1;
-            var onePageOfProducts = products.ToPagedList(pageNumber, 10);
-            ViewBag.OnePageOfProducts = onePageOfProducts;
+            var onePageOfEmployees = employees.ToPagedList(pageNumber, 10);
+            ViewBag.OnePageOfEmployees = onePageOfEmployees;
             return View();
         }
     }

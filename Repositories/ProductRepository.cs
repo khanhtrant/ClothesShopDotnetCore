@@ -2,6 +2,7 @@
 using System.Linq;
 using ClothesShopDotnetCore.Entities;
 using ClothesShopDotnetCore.Services;
+using Microsoft.EntityFrameworkCore;
 
 namespace ClothesShopDotnetCore.Repositories
 {
@@ -16,6 +17,8 @@ namespace ClothesShopDotnetCore.Repositories
         public IEnumerable<Products> GetProducts()
         {
             return _context.Products
+                .Include(p=>p.Category)
+                .Include(p=>p.Supplier)
                 .OrderBy(p => p.ProductName)
                 .ToList();
         }

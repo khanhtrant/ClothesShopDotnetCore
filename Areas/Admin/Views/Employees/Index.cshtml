@@ -1,0 +1,54 @@
+﻿@using X.PagedList
+@using X.PagedList.Mvc.Core
+
+@{
+    ViewBag.Title = "title";
+    Layout = "_Layout";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header" data-background-color="purple">
+                        <h4 class="title">Employees</h4>
+                        <p class="category">List of Employee</p>
+                    </div>
+                    <div class="card-content table-responsive">
+                        <table class="table">
+                            <thead class="text-primary">
+                                <tr>
+                                    <th>Last Name</th>
+                                    <th>First Name</th>
+                                    <th>Birth Of Date</th>
+                                    <th>Title</th>
+                                    <th>City</th>
+                                    <th>Hire Date</th>
+                                    <th>Phone</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var e in ViewBag.OnePageOfEmployees)
+                                {
+                                    <tr>
+                                        <td>@e.LastName</td>
+                                        <td>@e.FirstName</td>
+                                        <td>@e.BirthDate</td>
+                                        <td>@e.Title</td>
+                                        <td>@e.City</td>
+                                        <td>@e.HireDate</td>
+                                        <td>@e.HomePhone</td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div>
+                    @Html.PagedListPager((IPagedList)ViewBag.OnePageOfEmployees, page => Url.Action("Index", new { page }))
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
