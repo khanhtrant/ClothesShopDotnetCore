@@ -334,4 +334,5 @@ appsettings.Development.json
 appsettings.json
 .vscode
 .idea
+Entities
 
