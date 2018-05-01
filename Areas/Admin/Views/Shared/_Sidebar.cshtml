@@ -36,6 +36,12 @@
                     <p>Employee</p>
                 </a>
             </li>
+            <li class="@Html.IsActive("Index","Categories")">
+                <a href="@Url.Action("Index","Categories")">
+                    <i class="material-icons">opacity</i>
+                    <p>Category</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
