@@ -42,6 +42,12 @@
                     <p>Category</p>
                 </a>
             </li>
+            <li class="@Html.IsActive("Index","Orders")">
+                <a href="@Url.Action("Index","Orders")">
+                    <i class="material-icons">opacity</i>
+                    <p>Order</p>
+                </a>
+            </li>
         </ul>
     </div>
 </div>
