@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace ClothesShopDotnetCore.Repositories
 {
-    public class ProductRepository:IProductRepository
+    public class ProductRepository : IProductRepository
     {
         private readonly NorthwindContext _context;
 
@@ -17,8 +17,8 @@ namespace ClothesShopDotnetCore.Repositories
         public IEnumerable<Products> GetProducts()
         {
             return _context.Products
-                .Include(p=>p.Category)
-                .Include(p=>p.Supplier)
+                .Include(p => p.Category)
+                .Include(p => p.Supplier)
                 .OrderBy(p => p.ProductName)
                 .ToList();
         }
@@ -26,6 +26,16 @@ namespace ClothesShopDotnetCore.Repositories
         public Products GetProduct(int productId)
         {
             return _context.Products.FirstOrDefault(p => p.ProductId == productId);
+        }
+
+        public void AddProduct(Products product)
+        {
+            _context.Add(product);
+        }
+
+        public bool Save()
+        {
+            return (_context.SaveChanges()>=0);
         }
     }
 }

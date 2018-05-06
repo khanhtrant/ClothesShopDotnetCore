@@ -32,6 +32,7 @@ namespace ClothesShopDotnetCore
             services.AddScoped<IEmployeeRepository, EmployeeRepository>();
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IOrderRepository, OrderRepository>();
+            services.AddScoped<ISupplierRepository, SupplierRepository>();
             services.AddDbContext<NorthwindContext>(option =>
                 option.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddMvc();

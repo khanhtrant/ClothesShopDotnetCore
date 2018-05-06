@@ -7,5 +7,7 @@ namespace ClothesShopDotnetCore.Services
     {
         IEnumerable<Products> GetProducts();
         Products GetProduct(int productId);
+        void AddProduct(Products product);
+        bool Save();
     }
 }

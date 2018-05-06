@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace ClothesShopDotnetCore.Entities
 {
@@ -11,6 +12,7 @@ namespace ClothesShopDotnetCore.Entities
         }
 
         public int ProductId { get; set; }
+        [Required]
         public string ProductName { get; set; }
         public int? SupplierId { get; set; }
         public int? CategoryId { get; set; }
