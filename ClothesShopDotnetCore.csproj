@@ -13,7 +13,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="wwwroot\Admin\css\bootstrap.min.css" />
-    <None Include="wwwroot\Admin\css\demo.css" />
+    <None Include="wwwroot\Admin\css\site.css" />
     <None Include="wwwroot\Admin\css\material-dashboard.css" />
     <None Include="wwwroot\Admin\img\apple-icon.png" />
     <None Include="wwwroot\Admin\img\cover.jpeg" />

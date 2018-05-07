@@ -26,9 +26,17 @@ namespace ClothesShopDotnetCore.Areas.Admin.Controllers
             _supplierRepository = supplierRepository;
             _categoryRepository = categoryRepository;
         }
-        public IActionResult Index(int? page)
+        public IActionResult Index(int? page,string searchTerm)
         {
             var products = _repository.GetProducts();
+
+            if (!String.IsNullOrEmpty(searchTerm))
+            {
+                products = products.Where(p =>
+                    p.ProductName.Contains(searchTerm) || p.Category.CategoryName.Contains(searchTerm) ||
+                    p.Supplier.CompanyName.Contains(searchTerm));
+            }
+
             var pageNumber = page ?? 1;
             var onePageOfProducts = products.ToPagedList(pageNumber, 10);
             ViewBag.OnePageOfProducts = onePageOfProducts;
