@@ -40,5 +40,10 @@ namespace ClothesShopDotnetCore.Repositories
         {
             return (_context.SaveChanges()>=0);
         }
+
+        public void RemoveProduct(Products product)
+        {
+            _context.Products.Remove(product);
+        }
     }
 }

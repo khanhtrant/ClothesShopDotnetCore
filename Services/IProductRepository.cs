@@ -9,5 +9,6 @@ namespace ClothesShopDotnetCore.Services
         Products GetProduct(int productId);
         void AddProduct(Products product);
         bool Save();
+        void RemoveProduct(Products product);
     }
 }

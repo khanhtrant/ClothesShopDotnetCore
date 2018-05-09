@@ -29,7 +29,7 @@
                         <p class="category">List of Product</p>
                     </div>
                     <div class="card-content table-responsive">
-                        <table class="table">
+                        <table id="products" class="table">
                             <thead class="text-primary">
                             <tr>
                                 <th>Name</th>
@@ -49,7 +49,7 @@
                                     <td>@p.Category.CategoryName</td>
                                     <td>@p.UnitPrice</td>
                                     <td>@p.UnitsInStock</td>
-                                    <td>@Html.ActionLink("Edit","Edit","Products",new {id=p.ProductId}) | Delete</td>
+                                    <td>@Html.ActionLink("Edit","Edit","Products",new {id=p.ProductId}) |<button data-product-id="@p.ProductId" class="btn-link js-delete">Delete</button></td>
                                 </tr>
                             }
                             </tbody>
@@ -66,5 +66,26 @@
 
 @section scripts
 {
-    
+    <script>
+        $(document).ready(function() {
+            $('#products').on("click",
+                ".js-delete",
+                function() {
+                    var button = $(this);
+
+                    bootbox.confirm('Are you sure want to delete?',
+                        function(result) {
+                            if (result) {
+                                $.ajax({
+                                    url: "/api/products/" + button.attr("data-product-id"),
+                                    method: "DELETE",
+                                    success: function() {
+                                        button.parents("tr").remove();
+                                    }
+                                });
+                            }
+                        });
+                });
+        })
+    </script>
 }
