@@ -26,7 +26,7 @@ namespace ClothesShopDotnetCore.Areas.Admin.Controllers
             _supplierRepository = supplierRepository;
             _categoryRepository = categoryRepository;
         }
-        public IActionResult Index(int? page,string searchTerm)
+        public IActionResult Index(int? page,string searchTerm,string sortOrder)
         {
             var products = _repository.GetProducts();
 
@@ -71,12 +71,33 @@ namespace ClothesShopDotnetCore.Areas.Admin.Controllers
             {
                 _repository.AddProduct(product);
             }
+            else
+            {
+                var productInDb = _repository.GetProduct(product.ProductId);
+                productInDb.ProductName = product.ProductName;
+                productInDb.CategoryId = product.CategoryId;
+                productInDb.QuantityPerUnit = product.QuantityPerUnit;
+                productInDb.UnitPrice = product.UnitPrice;
+                productInDb.SupplierId = product.SupplierId;
+            }
 
             if (!_repository.Save())
             {
                 return View("Error");
             }
             return RedirectToAction("Index", "Products");
+        }
+
+        public IActionResult Edit(int id)
+        {
+            var product = _repository.GetProduct(id);
+            var viewModel = new ProductFormViewModel(product)
+            {
+                Categories = _categoryRepository.GetCategories(),
+                Suppliers = _supplierRepository.GetSuppliers()
+            };
+
+            return View("ProductForm", viewModel);
         }
     }
 }

@@ -20,14 +20,15 @@
 </head>
 
 <body>
-<div class="wrapper">
-    @Html.Partial("_Sidebar")
-    <div class="main-panel">
-        @Html.Partial("_Navbar")
-        @RenderBody()
-        @Html.Partial("_Footer")
-    </div>     
-</div>
+    <div class="wrapper">
+        @Html.Partial("_Sidebar")
+        <div class="main-panel">
+            @Html.Partial("_Navbar")
+            @RenderBody()
+            @Html.Partial("_Footer")
+        </div>
+    </div>
+    @RenderSection("scripts", required: false)
 </body>
 <!--   Core JS Files   -->
 <script src="~/Admin/js/jquery-3.2.1.min.js" type="text/javascript"></script>
@@ -44,5 +45,3 @@
 <!-- Material Dashboard javascript methods -->
 <script src="~/Admin/js/material-dashboard.js?v=1.2.0"></script>
 </html>
-
-@RenderSection("scripts",required:false)

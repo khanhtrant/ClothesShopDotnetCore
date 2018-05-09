@@ -25,7 +25,10 @@ namespace ClothesShopDotnetCore.Repositories
 
         public Products GetProduct(int productId)
         {
-            return _context.Products.FirstOrDefault(p => p.ProductId == productId);
+            return _context.Products
+                .Include(p=>p.Category)
+                .Include(p=>p.Supplier)
+                .FirstOrDefault(p => p.ProductId == productId);
         }
 
         public void AddProduct(Products product)

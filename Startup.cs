@@ -8,6 +8,7 @@ using ClothesShopDotnetCore.Repositories;
 using ClothesShopDotnetCore.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -35,7 +36,10 @@ namespace ClothesShopDotnetCore
             services.AddScoped<ISupplierRepository, SupplierRepository>();
             services.AddDbContext<NorthwindContext>(option =>
                 option.UseSqlServer(Configuration.GetConnectionString("Default")));
-            services.AddMvc();
+            services.AddMvc(setupAction => {
+                setupAction.ReturnHttpNotAcceptable = true;
+                setupAction.OutputFormatters.Add(new XmlDataContractSerializerOutputFormatter());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

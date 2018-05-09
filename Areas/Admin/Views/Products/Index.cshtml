@@ -31,25 +31,27 @@
                     <div class="card-content table-responsive">
                         <table class="table">
                             <thead class="text-primary">
-                                <tr>
-                                    <th>Name</th>
-                                    <th>Supplier</th>
-                                    <th>Category</th>
-                                    <th>Price</th>
-                                    <th>Units In Stock</th>
-                                </tr>
+                            <tr>
+                                <th>Name</th>
+                                <th>Supplier</th>
+                                <th>Category</th>
+                                <th>Price</th>
+                                <th>Units In Stock</th>
+                                <th>Task</th>
+                            </tr>
                             </thead>
                             <tbody>
-                                @foreach (var p in ViewBag.OnePageOfProducts)
-                                {
-                                    <tr>
-                                        <td>@p.ProductName</td>
-                                        <td>@p.Supplier.CompanyName</td>
-                                        <td>@p.Category.CategoryName</td>
-                                        <td>@p.UnitPrice</td>
-                                        <td>@p.UnitsInStock</td>
-                                    </tr>
-                                }
+                            @foreach (var p in ViewBag.OnePageOfProducts)
+                            {
+                                <tr>
+                                    <td>@p.ProductName</td>
+                                    <td>@p.Supplier.CompanyName</td>
+                                    <td>@p.Category.CategoryName</td>
+                                    <td>@p.UnitPrice</td>
+                                    <td>@p.UnitsInStock</td>
+                                    <td>@Html.ActionLink("Edit","Edit","Products",new {id=p.ProductId}) | Delete</td>
+                                </tr>
+                            }
                             </tbody>
                         </table>
                     </div>
@@ -61,3 +63,8 @@
         </div>
     </div>
 </div>
+
+@section scripts
+{
+    
+}
